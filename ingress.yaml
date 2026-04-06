@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: barberia-ingress
+spec:
+  rules:
+  - host: barberia.lab.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: barberia-service
+            port:
+              number: 80

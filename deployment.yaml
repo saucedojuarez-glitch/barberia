@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: barberia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: barberia
+  template:
+    metadata:
+      labels:
+        app: barberia
+    spec:
+      containers:
+      - name: barberia
+        image: barberia-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
